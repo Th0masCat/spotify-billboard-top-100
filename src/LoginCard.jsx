@@ -1,6 +1,6 @@
 import SpotifyLogo from "./images/icons8-spotify-512.svg";
 
-const loginUrl = `http://127.0.0.1:8000/`
+const loginUrl = `https://web-production-535b.up.railway.app`
 
 
 function LoginCard() {

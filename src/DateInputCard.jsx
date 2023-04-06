@@ -12,7 +12,7 @@ function DateInputCard() {
 
     const handleClick = () => {
         setStatus(false);
-        axios.get("http://127.0.0.1:8000/playlist",
+        axios.get("https://web-production-535b.up.railway.app/playlist",
             {
                 params: {
                     date: date
