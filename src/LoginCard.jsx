@@ -14,14 +14,11 @@ function LoginCard() {
     };
 
     return (
-        <div className="card p-5" style={{ width: "25rem" }}>
+        <>
             <img src={SpotifyLogo} className="card-img-top" alt="..."></img>
-
-            <label htmlFor="exampleInputEmail1" className="form-label">Login</label>
-
-            <button onClick={handleSubmit} type="button" className="btn btn-secondary">Submit</button>
-            
-        </div>
+                
+            <button onClick={handleSubmit} type="button" className="btn btn-secondary mt-4">Login</button>
+        </>
     )
 }
 

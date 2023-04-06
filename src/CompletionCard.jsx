@@ -1,10 +1,8 @@
 function CompletionCard() {
     return (
-        <div className="card p-5" style={{ width: "25rem" }}>
-
-            <h1 >Playlist Created!</h1>
-
-        </div>
+        <>
+            <h1 className="align-self-center m-3">Playlist Created!</h1>
+        </>
     )
 }
 

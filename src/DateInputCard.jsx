@@ -2,6 +2,7 @@ import SpotifyLogo from "./images/icons8-spotify-512.svg";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion, useTime, useTransform } from "framer-motion";
 
 
 function DateInputCard() {
@@ -27,30 +28,40 @@ function DateInputCard() {
             (error) => {
                 console.log(error);
             }
-            
+
         )
     }
 
-
+    const time = useTime();
+    const rotate = useTransform(time, [0, 4000], [0, 360], { clamp: false });
 
     return (
-        <div className="card p-5" style={{ width: "25rem" }}>
-            <img src={SpotifyLogo} className="card-img-top" alt="..."></img>
-            { status?
-                <form className="d-flex flex-column m-3">
-                <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label">Enter The Date:</label>
-                    <input onChange={(e)=>{setDate(e.target.value)}} type="date" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                    {console.log(date)}
-                </div>
-                <button onClick={handleClick}  type="button" className="btn btn-secondary">Submit</button>
-            </form>
+        <>
+            <motion.div style={status?
+            null
             :
-            <div>
-                <h1>Loading</h1>
-            </div>
+                {
+                    rotate: rotate
+                
+                }
+            }>
+                <img src={SpotifyLogo} className="card-img-top" alt="..."></img>
+            </motion.div>
+            {status ?
+                <form className="d-flex flex-column m-3">
+                    <div className="mb-3">
+                        <label htmlFor="exampleInputEmail1" className="form-label">Enter The Date:</label>
+                        <input onChange={(e) => { setDate(e.target.value) }} type="date" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        {console.log(date)}
+                    </div>
+                    <button onClick={handleClick} type="button" className="btn btn-secondary">Submit</button>
+                </form>
+                :
+                <div className="d-flex justify-content-center mt-4">
+                    <h1>Creating...</h1>
+                </div>
             }
-        </div>
+        </>
     )
 }
 
